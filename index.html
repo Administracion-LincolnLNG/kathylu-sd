@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Kathylu Nails</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --perla:#fbf1f4; --mora:#2b0f2e; --orquidea:#9b3fa3; --chicle:#f7a8c4;
+  --suave:#f3dbe5; --wa:#128c4f; --wa2:#0d7040;
+  --serif:"Gloock",Georgia,serif; --sans:"Figtree",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);color:var(--mora);line-height:1.55;
+  background-color:var(--perla);
+  background-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'><g fill='%239b3fa3' fill-opacity='.14'><path d='M40 22 L46 40 L64 46 L46 52 L40 70 L34 52 L16 46 L34 40 Z'/><path d='M180 150 L185 165 L200 170 L185 175 L180 190 L175 175 L160 170 L175 165 Z'/></g><g fill='%23f7a8c4' fill-opacity='.45'><ellipse cx='150' cy='50' rx='14' ry='22' transform='rotate(25 150 50)'/><path d='M60 190 c-10-14 -4-24 4-18 c4-8 14-4 10 6 c-2 4 -8 10 -14 12 z'/><circle cx='200' cy='40' r='4'/><circle cx='30' cy='120' r='3'/></g></svg>");
+  background-attachment:fixed;
+}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--orquidea);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+/* Barra */
+.barra{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+.marca{font-family:var(--serif);font-size:1.6rem;text-decoration:none}
+.marca i{font-style:normal;color:var(--orquidea)}
+
+/* Botones */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-weight:700;border-radius:999px;padding:12px 22px;transition:background .2s,transform .2s,color .2s}
+.btn:active{transform:scale(.98)}
+.btn-wa{background:var(--wa);color:#fff}.btn-wa:hover{background:var(--wa2)}
+.btn-linea{border:2px solid var(--mora)}.btn-linea:hover{background:var(--mora);color:var(--perla)}
+
+/* Marco con forma de uña */
+.unia{position:relative;overflow:hidden;background:linear-gradient(160deg,var(--tono,#f7a8c4),#fff3f7);
+  border-radius:50% 50% 22px 22px / 34% 34% 22px 22px;aspect-ratio:3/4}
+.unia img{width:100%;height:100%;object-fit:cover;display:block}
+.unia::after{content:"";position:absolute;top:6%;left:14%;width:16%;height:46%;border-radius:999px;
+  background:linear-gradient(180deg,rgba(255,255,255,.75),rgba(255,255,255,0));transform:rotate(8deg);pointer-events:none}
+
+/* Foto carnet 196 x 196 para las trabajadoras */
+.unia.carnet{width:196px;height:196px;max-width:100%;aspect-ratio:auto;border-radius:18px;margin:0 auto;border:4px solid #fff;box-shadow:0 10px 24px -12px rgba(43,15,46,.4)}
+.unia.carnet::after{display:none}
+.unia.carnet img{object-fit:cover}
+
+/* Portada */
+.portada{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center;padding:40px 0 72px}
+.portada h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.6rem,6vw,4.6rem);line-height:1.04;letter-spacing:-.01em}
+.portada p{margin:20px 0 30px;font-size:1.15rem;max-width:30ch}
+.acciones{display:flex;gap:12px;flex-wrap:wrap}
+.abanico{display:flex;justify-content:center;align-items:flex-end;padding-bottom:10px}
+.abanico .unia{width:31%;box-shadow:0 18px 40px -18px rgba(43,15,46,.45);animation:sube .9s cubic-bezier(.2,.8,.2,1) both}
+.abanico .unia:nth-child(1){transform:rotate(-7deg) translateY(14px);margin-right:-4%;animation-delay:.05s}
+.abanico .unia:nth-child(2){width:36%;z-index:2;animation-delay:.2s}
+.abanico .unia:nth-child(3){transform:rotate(7deg) translateY(14px);margin-left:-4%;animation-delay:.35s}
+@keyframes sube{from{opacity:0;translate:0 30px}to{opacity:1;translate:0 0}}
+
+/* Secciones */
+.seccion{padding:56px 0}
+.seccion h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,4vw,2.7rem)}
+.subtitulo{margin-top:8px;opacity:.75}
+
+/* Catálogo */
+.filtros{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0 32px}
+.chip{font:inherit;font-weight:600;cursor:pointer;border:2px solid var(--mora);background:rgba(251,241,244,.9);color:inherit;border-radius:999px;padding:6px 16px}
+.chip[aria-pressed="true"]{background:var(--mora);color:var(--perla)}
+.grilla{display:grid;grid-template-columns:repeat(4,1fr);gap:36px 24px}
+.card{display:flex;flex-direction:column}
+.card h3{font-family:var(--serif);font-weight:400;font-size:1.3rem;margin:16px 0 2px}
+.card p{font-size:.95rem;opacity:.8}
+.precio{font-weight:700;color:var(--orquidea);margin:6px 0 14px}
+.card .btn{margin-top:auto;padding:10px 16px}
+
+/* Equipo */
+.equipo{background:rgba(255,255,255,.7)}
+.equipo-grilla{display:grid;grid-template-columns:repeat(3,1fr);gap:36px 28px;margin-top:32px}
+.perfil{display:flex;flex-direction:column;align-items:center;text-align:center;background:var(--perla);border-radius:26px;padding:24px;box-shadow:0 14px 30px -20px rgba(43,15,46,.35)}
+.perfil h3{font-family:var(--serif);font-weight:400;font-size:1.5rem;margin:18px 0 2px}
+.perfil .rol{font-weight:700;color:var(--orquidea);font-size:.9rem;letter-spacing:.06em}
+.perfil p{margin:10px 0 18px;font-size:.95rem;opacity:.85}
+.perfil .btn{margin-top:auto}
+
+/* Visítanos */
+.visita{background:var(--suave)}
+.bloques{display:grid;grid-template-columns:1.6fr 1fr;gap:24px;margin-top:28px}
+.mapa{border-radius:22px;overflow:hidden;min-height:340px;background:#fff;display:flex;flex-direction:column}
+.mapa iframe{flex:1;border:0;width:100%;min-height:290px}
+.mapa .btn{border-radius:0;padding:12px}
+.lado{display:grid;gap:16px;align-content:start}
+.red{display:flex;align-items:center;gap:16px;text-decoration:none;background:#fff;border-radius:22px;padding:20px 22px;transition:transform .2s}
+.red:hover{transform:translateY(-3px)}
+.red svg{width:38px;height:38px;flex:none;fill:none;stroke:var(--orquidea);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.red b{display:block;font-family:var(--serif);font-weight:400;font-size:1.25rem}
+.red span{font-size:.9rem;opacity:.75}
+.horario{padding:6px 4px;font-size:.95rem}
+
+footer{padding:28px 0;text-align:center;font-size:.9rem;opacity:.7}
+
+@media (max-width:900px){
+  .portada{grid-template-columns:1fr;gap:36px}
+  .grilla{grid-template-columns:repeat(2,1fr)}
+  .equipo-grilla{grid-template-columns:repeat(2,1fr)}
+  .bloques{grid-template-columns:1fr}
+}
+@media (max-width:520px){
+  .wrap{padding:0 16px}
+  .grilla,.equipo-grilla{gap:28px 14px}
+  .barra .btn{display:none}
+  .perfil{padding:16px}
+  .unia.carnet{width:100%;height:auto;aspect-ratio:1/1}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="barra">
+    <a class="marca" href="#" id="marca"></a>
+    <a class="btn btn-wa" id="waTop" target="_blank" rel="noopener">Escríbenos</a>
+  </header>
+
+  <section class="portada">
+    <div>
+      <h1 id="lema"></h1>
+      <p>Toca el modelo que más te guste y agenda tu cita por WhatsApp.</p>
+      <div class="acciones">
+        <a class="btn btn-wa" href="#catalogo">Ver modelos</a>
+        <a class="btn btn-linea" href="#equipo">Nuestro equipo</a>
+        <a class="btn btn-linea" id="btnIg" target="_blank" rel="noopener">Instagram</a>
+        <a class="btn btn-linea" id="btnTt" target="_blank" rel="noopener">TikTok</a>
+      </div>
+    </div>
+    <div class="abanico" id="abanico" aria-hidden="true"></div>
+  </section>
+</div>
+
+<section class="seccion" id="catalogo">
+  <div class="wrap">
+    <h2>Modelos</h2>
+    <div class="filtros" id="filtros"></div>
+    <div class="grilla" id="grilla"></div>
+  </div>
+</section>
+
+<section class="seccion equipo" id="equipo">
+  <div class="wrap">
+    <h2>Nuestro equipo</h2>
+    <p class="subtitulo">Conoce a las chicas que te van a atender.</p>
+    <div class="equipo-grilla" id="equipoGrilla"></div>
+  </div>
+</section>
+
+<section class="seccion visita" id="visitanos">
+  <div class="wrap">
+    <h2>Visítanos</h2>
+    <div class="bloques">
+      <div class="mapa">
+        <iframe id="mapa" title="Mapa de ubicación" loading="lazy"></iframe>
+        <a class="btn btn-wa" id="abrirMapa" target="_blank" rel="noopener">Abrir en Google Maps</a>
+      </div>
+      <div class="lado">
+        <a class="red" id="ig" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6"/></svg>
+          <div><b>Instagram</b><span>Mira nuestros trabajos</span></div>
+        </a>
+        <a class="red" id="tt" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M14 3v11.2a3.7 3.7 0 1 1-3.7-3.7"/><path d="M14 3c.3 2.4 1.9 4.1 4.5 4.4"/></svg>
+          <div><b>TikTok</b><span>Videos del proceso</span></div>
+        </a>
+        <a class="red" id="waCaja" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M3 21l1.6-4.6A8.5 8.5 0 1 1 8 19.6L3 21z"/></svg>
+          <div><b>WhatsApp</b><span>Agenda o pregunta</span></div>
+        </a>
+        <p class="horario" id="horario"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap" id="pie"></div></footer>
+
+<script src="datos.js"></script>
+<script>
+const $ = id => document.getElementById(id);
+const TONOS = ["#f7a8c4","#d9a6e6","#ffc9b8","#c9b3f2"];
+const wa = texto => "https://wa.me/" + CONFIG.whatsapp + (texto ? "?text=" + encodeURIComponent(texto) : "");
+
+// Datos generales
+document.title = CONFIG.negocio + " | Agenda tu cita";
+const partes = CONFIG.negocio.split(" ");
+$("marca").innerHTML = partes[0] + (partes[1] ? " <i>" + partes.slice(1).join(" ") + "</i>" : "");
+$("lema").textContent = CONFIG.lema;
+$("waTop").href = wa(); $("waCaja").href = wa();
+$("ig").href = CONFIG.instagram; $("tt").href = CONFIG.tiktok;
+$("btnIg").href = CONFIG.instagram; $("btnTt").href = CONFIG.tiktok;
+$("horario").textContent = CONFIG.horario || "";
+$("pie").textContent = "© " + new Date().getFullYear() + " " + CONFIG.negocio;
+const q = encodeURIComponent(CONFIG.direccion);
+$("mapa").src = "https://maps.google.com/maps?q=" + q + "&output=embed";
+$("abrirMapa").href = "https://www.google.com/maps/search/?api=1&query=" + q;
+
+// Marco de foto (uña para modelos, carnet cuadrado para trabajadoras)
+function marco(item, i, carnet){
+  const d = document.createElement("div");
+  d.className = "unia" + (carnet ? " carnet" : "");
+  d.style.setProperty("--tono", TONOS[i % TONOS.length]);
+  const img = new Image(); img.alt = item.nombre; img.loading = "lazy";
+  img.width = 196; img.height = 196;
+  img.onerror = () => img.remove(); img.src = item.imagen;
+  d.append(img); return d;
+}
+
+// Portada: los 3 primeros modelos
+MODELOS.slice(0, 3).forEach((m, i) => $("abanico").append(marco(m, i, false)));
+
+// Catálogo de modelos con filtros
+function pintarModelos(cat){
+  $("grilla").innerHTML = "";
+  MODELOS.forEach((m, i) => {
+    if (cat !== "Todos" && m.categoria !== cat) return;
+    const c = document.createElement("article"); c.className = "card";
+    c.append(marco(m, i, false));
+    c.insertAdjacentHTML("beforeend",
+      "<h3></h3>" + (m.descripcion ? "<p></p>" : "") + (m.precio ? '<div class="precio"></div>' : ""));
+    c.querySelector("h3").textContent = m.nombre;
+    if (m.descripcion) c.querySelector("p").textContent = m.descripcion;
+    if (m.precio) c.querySelector(".precio").textContent = m.precio;
+    const b = document.createElement("a");
+    b.className = "btn btn-wa"; b.textContent = CONFIG.textoBotonModelo;
+    b.target = "_blank"; b.rel = "noopener";
+    b.href = wa(CONFIG.mensajeModelo + " " + m.nombre);
+    b.setAttribute("aria-label", CONFIG.textoBotonModelo + " para " + m.nombre);
+    c.append(b); $("grilla").append(c);
+  });
+}
+const cats = [...new Set(MODELOS.map(m => m.categoria).filter(Boolean))];
+if (cats.length > 1) {
+  ["Todos", ...cats].forEach((n, k) => {
+    const b = document.createElement("button");
+    b.className = "chip"; b.textContent = n; b.setAttribute("aria-pressed", k === 0);
+    b.onclick = () => {
+      document.querySelectorAll(".chip").forEach(x => x.setAttribute("aria-pressed", x === b));
+      pintarModelos(n);
+    };
+    $("filtros").append(b);
+  });
+}
+pintarModelos("Todos");
+
+// Perfiles de trabajadoras
+TRABAJADORAS.forEach((t, i) => {
+  const p = document.createElement("article"); p.className = "perfil";
+  p.append(marco(t, i, true));
+  p.insertAdjacentHTML("beforeend", "<h3></h3>" + (t.rol ? '<div class="rol"></div>' : "") + (t.descripcion ? "<p></p>" : ""));
+  p.querySelector("h3").textContent = t.nombre;
+  if (t.rol) p.querySelector(".rol").textContent = t.rol;
+  if (t.descripcion) p.querySelector("p").textContent = t.descripcion;
+  const b = document.createElement("a");
+  b.className = "btn btn-wa"; b.textContent = CONFIG.textoBotonTrabajadora;
+  b.target = "_blank"; b.rel = "noopener";
+  b.href = wa(CONFIG.mensajeTrabajadora + " " + t.nombre);
+  b.setAttribute("aria-label", CONFIG.textoBotonTrabajadora + " con " + t.nombre);
+  p.append(b); $("equipoGrilla").append(p);
+});
+</script>
+</body>
+</html>
